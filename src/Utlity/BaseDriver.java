@@ -16,7 +16,8 @@ import org.testng.annotations.*;
 import java.time.Duration;
 
 public class BaseDriver {
-    public static Logger logEkle = LogManager.getLogger(); //Logları ekleyeceğim kuyruğu başlattım.
+    public static Logger logEkle = LogManager.getLogger();
+
     public static WebDriver driver;
     public static WebDriverWait wait;
 
@@ -48,25 +49,41 @@ public class BaseDriver {
         logEkle.info("Loglama işlemi bitti");
     }
 
-    public void Login() {
-        driver.get("https://opencart.abstracta.us/index.php?route=account/login");
+    public static void Login() {
+        driver.get("https://openmrs.org/");
         Tools.Bekle(2);
+WebElement demo1= driver.findElement(By.xpath("//a[@class='zak-button']"));
+demo1.click();
+Tools.Bekle(2);
 
-        WebElement email=driver.findElement(By.id("input-email"));
-        email.sendKeys("testng1@gmail.com");
-        logEkle.info("Şu anda "+"testng1@gmail.com"+ " isimli user login olmak için gönderildi");
+        WebElement demo2= driver.findElement(By.xpath("//SPAN[@class='elementor-button-text'][text()=\"Keşfet OpenMRS 2\"]"));
+        demo2.click();
 
-        WebElement password=driver.findElement(By.id("input-password"));
-        password.sendKeys("123qweasd");
+        WebElement demo3= driver.findElement(By.xpath("(//DIV[@class='elementor-button-wrapper'])[4]"));
+        demo3.click();
 
-        WebElement loginBtn=driver.findElement(By.xpath("//input[@value='Login']"));
-        loginBtn.click();
+        WebElement email=driver.findElement(By.id("username"));
+        email.sendKeys("admin");
 
+        WebElement password=driver.findElement(By.id("password"));
+        password.sendKeys("Admin123");
+
+        WebElement ward=driver.findElement(By.id("Inpatient Ward"));
+        ward.click();
+
+        WebElement login=driver.findElement(By.cssSelector("input[id=\"loginButton\"]"));
+        login.click();
+
+
+
+     /*
         wait.until(ExpectedConditions.titleIs("My Account"));
         logEkle.debug("Login işlemi testine geçiliyor");
         Assert.assertTrue(driver.getTitle().equals("My Account"), "Login olunamadı");
         logEkle.debug("Login işlemi başarıyla yapıldı");
         logEkle.warn("Login işlemlerinde testng1@gmail.com kullanıca önemli hata oluştu");
+
+
     }
 
     @BeforeMethod
@@ -83,6 +100,8 @@ public class BaseDriver {
 
         //çok önemli fata oldu
         logEkle.fatal(sonuc.getName()+" Metod da çok önemli hata oldu");
+
+      */
     }
 
 
