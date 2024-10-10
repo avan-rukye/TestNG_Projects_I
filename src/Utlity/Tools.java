@@ -1,6 +1,7 @@
 package Utlity;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
@@ -37,5 +38,8 @@ public class Tools {
         }
         return  urunBulundu;
     }
-
+    public static void scrolltoElement(WebElement element) {
+        JavascriptExecutor js=(JavascriptExecutor) BaseDriver.driver;
+        js.executeScript("arguments[0].scrollIntoView();", element);
+    }
 }

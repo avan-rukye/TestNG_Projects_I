@@ -32,7 +32,7 @@ public class BaseDriver {
         //hata oluşmuş olsaydı.
         logEkle.error("Driver oluşturulurken hata oluştu");
 
-        //driver.manage().window().maximize(); // Ekranı max yapıyor.
+        driver.manage().window().maximize(); // Ekranı max yapıyor.
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20)); // 20 sn mühlet: sayfayı yükleme mühlet
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20)); // 20 sn mühlet: elementi bulma mühleti
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -60,7 +60,8 @@ Tools.Bekle(2);
         demo2.click();
 
         WebElement demo3= driver.findElement(By.xpath("(//DIV[@class='elementor-button-wrapper'])[4]"));
-        demo3.click();
+        WebElement demo3click=wait.until(ExpectedConditions.elementToBeClickable(demo3));
+        demo3click.click();
 
         WebElement email=driver.findElement(By.id("username"));
         email.sendKeys("admin");
@@ -74,7 +75,7 @@ Tools.Bekle(2);
         WebElement login=driver.findElement(By.cssSelector("input[id=\"loginButton\"]"));
         login.click();
 
-
+//div[@class='elementor-button-wrapper'])[4]
 
      /*
         wait.until(ExpectedConditions.titleIs("My Account"));

@@ -16,21 +16,19 @@ public void Test407_1 () {}
         recordButton.click();
 
         WebElement patientSearch=driver.findElement(By.xpath("//input[@id='patient-search']"));
-        patientSearch.sendKeys("Rukiye AVAN");
+        patientSearch.sendKeys("Rukiye1 AVAN");
 
-        WebElement aramaSonucu=driver.findElement(By.xpath("(//td[@class=''])[1]"));
-        aramaSonucu.click();
+        WebElement secim=driver.findElement(By.xpath("//tbody[@aria-live='polite']/tr/td[2]"));
+        secim.click();
 
-        WebElement delete=driver.findElement(By.xpath("//div[@class='col-11 col-lg-10'][text()='\n" +
-                "                                                    Delete Patient\n" +
-                "                                                ']"));
+        WebElement delete=driver.findElement(By.xpath("(//li[@class=\"float-left\"])[17]"));
         delete.click();
 
         WebElement reason=driver.findElement(By.xpath("//input[@id='delete-reason']"));
         reason.sendKeys("Hasta Talebi");
 
-        // WebElement confirm= driver.findElement(By.xpath("(//button[@class='confirm right'])[5]"));
-       // confirm.click();
+        WebElement confirm= driver.findElement(By.xpath("(//button[@class='confirm right'])[5]"));
+        confirm.click();
 
 
 
