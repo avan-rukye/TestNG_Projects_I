@@ -42,7 +42,7 @@ public class US_405 extends BaseDriver{
 
         WebElement sonuc=driver.findElement(By.xpath("(//DIV[@class='task'])[1]/i"));
         Boolean sonuc1=sonuc.isDisplayed();
-       logEkle.error(sonuc1);
+       //logEkle.error(sonuc1);
        Assert.assertTrue(sonuc1==true, "görüntülenemedi");
 
 
