@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="My Suit">
+    <test name="My Test 1">
+
+
+        <classes>
+            <class name="TestNG_Projects_1.US_401"></class>
+            <class name="TestNG_Projects_1.US_402"></class>
+            <class name="TestNG_Projects_1.US_404"></class>
+            <class name="TestNG_Projects_1.US_405"></class>
+            <class name="TestNG_Projects_1.US_406"></class>
+            <class name="TestNG_Projects_1.US_407"></class>
+            <class name="TestNG_Projects_1.US_408"></class>
+            <class name="TestNG_Projects_1.US_409"></class>
+            <class name="TestNG_Projects_1.US_410"></class>
+            <class name="TestNG_Projects_1.US_403"></class>
+
+        </classes>
+    </test>
+</suite>

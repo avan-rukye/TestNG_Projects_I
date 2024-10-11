@@ -3,6 +3,7 @@ package TestNG_Projects_1;
 import Utlity.BaseDriver;
 import Utlity.Tools;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -29,10 +30,9 @@ public class US_406  {
 
 
 
-        WebElement demo3= driver.findElement(By.xpath("(//DIV[@class='elementor-button-wrapper'])[4]"));
-        WebElement demo3click=wait.until(ExpectedConditions.elementToBeClickable(demo3));
-        Tools.scrolltoElement(demo3);
-        demo3click.click();
+        WebElement demo3= wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[@class='elementor-button-text'])[4]")));
+        JavascriptExecutor js=(JavascriptExecutor)driver;
+        js.executeScript("arguments[0].click();", demo3);
 
         WebElement email=driver.findElement(By.id("username"));
         email.sendKeys("admin");
@@ -58,11 +58,14 @@ public class US_406  {
         WebElement anasayfa=driver.findElement(By.xpath("//I[@class='icon-home small']"));
         anasayfa.click();
 
-        recordButton.click();
-        patientSearch.sendKeys("111");
+        WebElement recordButton2=driver.findElement(By.xpath("//a[@id='coreapps-activeVisitsHomepageLink-coreapps-activeVisitsHomepageLink-extension']"));
+        recordButton2.click();
+
+        WebElement patientSearch2=driver.findElement(By.xpath("//input[@id='patient-search']"));
+        patientSearch2.sendKeys("111");
 
 
-        WebElement dogrulama=driver.findElement(By.xpath("(//FONT)[36]"));
+        WebElement dogrulama=driver.findElement(By.xpath("//tbody[@aria-live='polite']/tr/td"));
         Assert.assertTrue(dogrulama.getText().contains("No matching"),"Hatalı Sonuç");
 
 

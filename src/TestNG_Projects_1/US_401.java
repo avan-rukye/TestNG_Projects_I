@@ -3,6 +3,7 @@ package TestNG_Projects_1;
 import Utlity.BaseDriver;
 import Utlity.Tools;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -46,9 +47,9 @@ uyarısını alır.
     WebElement demo2= driver.findElement(By.xpath("//SPAN[@class='elementor-button-text'][text()=\"Keşfet OpenMRS 2\"]"));
     demo2.click();
 
-    WebElement demo3= driver.findElement(By.xpath("(//DIV[@class='elementor-button-wrapper'])[4]"));
-    WebElement demo3click=wait.until(ExpectedConditions.elementToBeClickable(demo3));
-    demo3click.click();
+    WebElement demo3= wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[@class='elementor-button-text'])[4]")));
+    JavascriptExecutor js=(JavascriptExecutor)driver;
+    js.executeScript("arguments[0].click();", demo3);
 
     WebElement emailclick=wait.until(ExpectedConditions.elementToBeClickable(By.id("username")));
     emailclick.sendKeys("team10");
@@ -75,8 +76,9 @@ uyarısını alır.
 
     WebElement ward1=driver.findElement(By.id("Inpatient Ward"));
     ward1.click();
-    login.click();
 
+    WebElement login2=driver.findElement(By.cssSelector("input[id=\"loginButton\"]"));
+    login2.click();
 
 
 

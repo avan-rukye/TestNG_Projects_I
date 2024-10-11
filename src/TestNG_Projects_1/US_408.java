@@ -31,20 +31,6 @@ public class US_408 extends BaseDriver {
         }
         System.out.println(sayac);
 
-      /*  // Hasta tablosundaki satırları al
-        List<WebElement> rows = driver.findElements(By.cssSelector(".patient-table tbody tr"));
-
-        // "Showing X to Y of Z entries" kısmını bul
-        WebElement entryInfo = driver.findElement(By.id("patientTableInfo"));
-
-        // Toplam satır sayısını al
-        String entryText = entryInfo.getText();
-        String totalEntries = entryText.split("of ")[1].split(" entries")[0].trim();
-
-        // Tablo satır sayısıyla "Showing X to Y of Z entries" 'deki toplam hasta sayısını karşılaştır
-        Assert.assertEquals(rows.size(), Integer.parseInt(totalEntries), "Satır sayısı doğru değil.");
-
-*/
 
     }
 }

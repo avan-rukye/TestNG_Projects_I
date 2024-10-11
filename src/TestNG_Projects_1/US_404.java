@@ -49,7 +49,7 @@ public class US_404  {
     public void Test404_2(){
 
         WebElement patient=driver.findElement(By.xpath("(//I[@class='icon-user'])[2]"));
-patient.click();
+        patient.click();
 
         WebElement givenName=driver.findElement(By.name("givenName"));
         givenName.sendKeys("Rukiye");
