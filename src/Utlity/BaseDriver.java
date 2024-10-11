@@ -24,6 +24,7 @@ public class BaseDriver {
     @BeforeClass
     public void BaslangicIslemleri(){
         driver=new ChromeDriver();
+
         driver.manage().window().maximize(); // Ekranı max yapıyor.
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20)); // 20 sn mühlet: sayfayı yükleme mühlet
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20)); // 20 sn mühlet: elementi bulma mühleti
@@ -47,8 +48,7 @@ public class BaseDriver {
         WebElement demo2= driver.findElement(By.xpath("(//span[@class='elementor-button-text'])[2]"));
         demo2.click();
 
-        WebElement demo3=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[@class='elementor-button-text'])[4]")));
-        demo3.click();
+
 
         WebElement email=driver.findElement(By.id("username"));
         email.sendKeys("admin");
@@ -61,5 +61,6 @@ public class BaseDriver {
 
         WebElement login=driver.findElement(By.cssSelector("input[id=\"loginButton\"]"));
         login.click();
+
     }
 }
